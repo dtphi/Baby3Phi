@@ -1,0 +1,18 @@
+/* 
+  Giáo phận phú cường: Module info fanpages main css
+*/
+.info {
+    .row-item-3 {
+        border-bottom-style: dashed;
+
+        span {
+            &:nth-child(2n) {
+                width: 60%;
+            }
+
+            &:last-child {
+                width: 25%;
+            }
+        }
+    }
+}

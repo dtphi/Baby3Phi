@@ -1,0 +1,70 @@
+<template>
+  <b-col :cols="_getColumnNumber()" class="col-mobile">
+    <slot></slot>
+    <keep-alive v-for="(item, idx) in _moduleList" :key="idx">
+      <component v-bind:is="item"></component>
+    </keep-alive>
+  </b-col>
+</template>
+
+<script>
+import { mapState, } from 'vuex'
+import special_infos from 'v@front/modules/special_infos'
+import special_banners from 'v@front/modules/special_banners'
+import { fnCheckProp, } from '@app/common/util'
+
+export default {
+  name: 'ColumnMiddle',
+  components: {
+    'module-info-carousel': special_infos,
+    'module-special-banner': special_banners,
+  },
+  props: {
+    contentType: {
+      default: 'top',
+    },
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    ...mapState({
+      setting: (state) => state.cfApp.setting,
+    }),
+    _moduleList() {
+      let list = []
+
+      if (Object.keys(this.setting) && fnCheckProp(this.setting, 'modules')) {
+        let contentType = 'content_' + this.contentType + '_column'
+        let modules =
+          this.$route.meta.layout_content[contentType].middle_modules
+        if (modules && modules.length) {
+          _.forEach(modules, function(item) {
+            list.push('module-' + item.moduleName.toLowerCase())
+          })
+        }
+      }
+
+      return list
+    },
+    _colMiddleClass() {
+      let contentType = 'content_' + this.contentType + '_column'
+      if (this.$route.meta.layout_content[contentType].column_number == 3) {
+        return '5'
+      }
+      if (this.$route.meta.layout_content[contentType].colClass) {
+        return this.$route.meta.layout_content[contentType].colClass
+      }
+
+      return '9'
+    },
+  },
+  methods: {
+    _getColumnNumber() {
+      let contentType = 'content_' + this.contentType + '_column'
+
+      return this.$route.meta.layout_content[contentType].middle_column
+    },
+  },
+}
+</script>

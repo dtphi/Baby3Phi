@@ -1,0 +1,60 @@
+
+.cms-btn {
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.cms-breadcrumb {
+  display: inline-block;
+  background: none;
+  margin: 0;
+  padding: 0 10px;
+  list-style: none;
+}
+
+.cms-breadcrumb>li {
+  display: inline-block;
+}
+
+.cms-breadcrumb>li input,
+.cms-breadcrumb>li select {
+  padding: 3px 6px;
+  font-size: 12px;
+}
+
+.cms-text-red {
+  color: red
+}
+
+#cms-scroll-dropdown ul {
+  height: 200px;
+  width: 95%;
+  display: block;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.cms-btn-input-right {
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  height: 34px;
+  font-size: 1.5em;
+}
+
+.cms-ul-cate-dropdown {
+  top: 35px;
+  left: 15px;
+}
+
+.cms-ul-cate-dropdown>li>a:hover,
+.cms-dropdown-menu>li>a:focus {
+  background-color: green !important;
+}
+
+.cms-btn-dropdown {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 0.5em;
+}

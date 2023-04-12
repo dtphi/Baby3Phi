@@ -1,0 +1,172 @@
+link(color-link)
+  color color-link
+  text-decoration none
+  &:hover, &:active, &:visited, &:focus
+    color color-link
+    text-decoration none
+
+active(color-active)
+  &:active
+    background color-active
+
+placeholder(color)
+  &::placeholder
+    color color
+  &:-ms-input-placeholder
+    color color
+  &::-ms-input-placeholder
+    color color
+
+custom-scroll(color1, color2, width, hasMargin, isRadius)
+  &::-webkit-scrollbar
+    width width px
+  &::-webkit-scrollbar-track
+    if hasMargin
+      margin 0 0 0 20px
+    background color1
+    border-radius 2px
+  &::-webkit-scrollbar-thumb
+    background color2
+    if isRadius
+      border-radius 6px
+
+line-clamp(count=1, line-height=1.5)
+  overflow hidden
+  text-overflow ellipsis
+  line-height line-height
+  //min-height line-height * count
+  if count > 1
+    white-space initial
+    display -webkit-box
+    -webkit-line-clamp count
+    /*! autoprefixer: ignore next */
+    -webkit-box-orient vertical
+    /* autoprefixer: on */
+  else
+    white-space nowrap
+
+rem(value)
+  if (value is 'auto' || value is 'inherit')
+    return value
+
+  u = unit(value)
+  if (u is 'px')
+    return unit(value/16, 'rem')
+  else
+    return unit(value, u)
+
+remit($property, $sizes)
+  $rems = ()
+  $pxs = ()
+
+  for $size in $sizes
+    push($rems, rem($size))
+    push($pxs, $size)
+
+  add-property($property, $pxs)
+  add-property($property, $rems)
+
+bp(name)
+  if name == 'sm'
+    @media only screen and (max-width: screen-S)
+      {block}
+  else if name == 'md'
+    @media only screen and (max-width: screen-M)
+      {block}
+  else if name == 'lg'
+    @media only screen and (max-width: screen-L)
+      {block}
+  else
+    @media only screen and (max-width: name)
+      {block}
+
+bps(name)
+  if name == 'sm'
+    @media only screen and (min-width: screen-S + 1px)
+      {block}
+  else if name == 'md'
+    @media only screen and (min-width: screen-M + 1px)
+      {block}
+  else if name == 'lg'
+    @media only screen and (min-width: screen-L + 1px)
+      {block}
+  else
+    @media only screen and (min-width: name + 1px)
+      {block}
+
+pcHover()
+  @media only screen and (min-width: screen-S + 1px)
+    &:hover
+      {block}
+
+calcWidth(width)
+  return "calc(100vw * %s / %s)" % (width design-S)
+
+calcHeight(height)
+  return "calc(100vw * %s / %s)" % (height design-S)
+
+neon-text(color)
+  text-shadow 0 0 10px color, 0 0 10px color, 0 0 10px color, 0 0 11px color, 0 0 11px color, 0 0 12px color, 0 0 12px color, 0 0 13px color, 0 0 13px color
+
+neon-box(color)
+  box-shadow 0 0 10px color, 0 0 10px color, 0 0 10px color, 0 0 10px color inset, 0 0 11px color, 0 0 11px color, 0 0 11px color inset, 0 0 12px color, 0 0 12px color, 0 0 12px color inset, 0 0 13px color, 0 0 13px color, 0 0 13px color inset
+
+ecd-button-base()
+  width 248px
+  height 44px
+  max-width 100%
+  font-weight bold
+  font-size rem(14px)
+  line-height rem(24px)
+  font-family-NotoSansJP()
+  text-align center
+  box-sizing border-box
+  border-radius 4px
+  display flex
+  align-items center
+  justify-content center
+  box-shadow 0 0 20px color-shadow
+  cursor pointer
+  transition .3s
+  +bp(sm)
+    width calcWidth(630)
+    height calcHeight(88)
+  &:hover
+    transition .3s
+  &:disabled
+    background var(--color-fontLight2, color-font-light2)!important
+    pointer-events none
+
+// TODO: コンポーネントを使うようにする
+operation-button-base()
+  width 40px
+  height 40px
+  background var(--color-btnBox, color-btn-box)
+  border 1px solid var(--color-border, color-border)
+  border-radius 4px
+  box-sizing border-box
+  display flex
+  align-items center
+  justify-content center
+  cursor pointer
+  transition .3s
+  &:hover
+    background var(--color-btnBoxHover, color-btn-box-hover)
+  &.delete
+    background var(--color-btnNegative, color-btn-negative)
+    &:hover
+      background var(--color-btnNegativeHover, color-btn-negative-hover)
+
+diamond-list(color)
+  position relative
+  padding-left 20px
+  &::before
+    content ''
+    width 8px
+    height 8px
+    display block
+    background-color color
+    position absolute
+    left 5px
+    top calc(50% - 4px)
+    transform rotate(45deg)

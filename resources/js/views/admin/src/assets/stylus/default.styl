@@ -1,0 +1,89 @@
+html,
+body
+  font-family-NotoSansJP()
+  color var(--color-font, color-font)
+  width 100%
+  min-height 100%
+  margin 0 auto
+  font-size 16px
+  line-height 24px
+  font-weight 400
+  -webkit-text-size-adjust 100%
+  font-feature-settings "pkna"
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  font-display swap
+  -webkit-overflow-scrolling touch
+  word-break break-word
+  +bp(md)
+    width 100vw
+    height auto
+    position relative
+    overflow-x hidden
+    overflow-y scroll
+  &.overflow-y-hidden
+    overflow-y hidden
+
+a
+  text-decoration none
+  &.textlink1
+    link(var(--color-link1, color-link1))
+    font-size rem(14px)
+    line-height 1.6
+    &:hover
+      text-decoration underline
+  &.textlink2
+    link(var(--color-link2, color-link2))
+    font-size rem(14px)
+    line-height 1.6
+    &:hover
+      text-decoration underline
+  &.textlink3
+    color var(--color-font, color-font)
+    font-size rem(14px)
+    line-height 1.6
+    transition .3s
+    position relative
+    padding-left 20px
+    display inline-block
+    &:hover
+      color var(--color-mainLight2, color-main-light2)
+    &::before
+      content ''
+      width 8px
+      height 8px
+      border-left solid 2px var(--color-mainLight2, color-main-light2)
+      border-bottom solid 2px var(--color-mainLight2, color-main-light2)
+      display block
+      position absolute
+      left 0
+      top calc(50% - 4px)
+      transform rotate(-135deg)
+
+img
+  transition .3s
+  -webkit-backface-visibility hidden
+  image-rendering -webkit-optimize-contrast
+  &[lazy=loading]
+    opacity 0
+  &[lazy=loaded]
+    opacity 1
+
+.en
+  font-family-MPLUSRounded1c()
+
+.ctx-menu-container
+  .ctx
+    .ctx-menu
+      border none
+      box-shadow 0 0 5px color-shadow
+      li
+        cursor pointer
+        padding 5px
+        margin 0 5px
+        font-weight bold
+        font-size rem(13px)
+        &:hover
+          background @css{rgba(var(--color-main-10, color-main-10), .2)}
+          color var(--color-main, color-main)
+          border-radius 8px

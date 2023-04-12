@@ -1,0 +1,20 @@
+export const MAP_PC_INFORMATIONS = [
+  'album',
+  'image',
+  'date_available',
+  'sort_order',
+  'status',
+  'name',
+  'meta_title',
+  'sort_description',
+  'information_type',
+  'description',
+  'tag',
+  'meta_description',
+  'meta_keyword',
+  'multi_images',
+  'relateds',
+  'categorys',
+  'downloads',
+  'special_carousels'
+]

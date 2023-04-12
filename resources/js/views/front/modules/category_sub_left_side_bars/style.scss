@@ -1,0 +1,91 @@
+/* 
+  Giáo phận phú cường: Module category sub left side bars main css
+*/
+.category-sub-left {
+  margin-bottom: 10px;
+
+  .title {
+    background-color: #ED1C24;
+    font-size: 14px;
+    color: #ffffff;
+    text-transform: initial;
+    padding: 8px;
+  }
+  
+  #nav-category {
+    .nav-menu {
+      margin-bottom: 0;
+      padding-left: 20px;
+      list-style-type: none;
+        
+      li {
+          a {
+              color: #000;
+              display: block;
+              font-size: 14px;
+              padding: 5px 7px;
+              text-decoration: none;
+              i {
+                font-size: 14px;
+              }
+          }
+      }
+
+      .sub-active {
+        background-color: #ed1c2317;
+      }
+
+      ul {
+        padding-left: 30px;
+        list-style-type: none;
+      }
+    }
+
+    ul {
+      li {
+        li {
+          &:hover {
+            cursor: pointer;
+            background-color: #ed1c2317;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .category-sub-left {
+    margin-bottom: 10px;
+  
+    .title {
+      font-size: 14px;
+      padding: 8px;
+    }
+    
+    #nav-category {
+      .nav-menu {
+        margin-bottom: 0;
+        padding-left: 20px;
+          
+        li {
+            a {
+                color: #000;
+                display: block;
+                font-size: 14px;
+                padding: 5px 7px;
+                text-decoration: none;
+                i {
+                  font-size: 14px;
+                }
+            }
+        }
+  
+        ul {
+          padding-left: 30px;
+          list-style-type: none;
+        }
+      }
+    }
+  }
+}

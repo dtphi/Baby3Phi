@@ -1,0 +1,21 @@
+{
+    "short_name": "GP Phú Cường",
+    "name": "Giáo Phận Phú Cường",
+    "icons": [
+        {
+            "src": "/images/icons/favicon.ico",
+            "sizes": "64x64",
+            "purpose": "any"
+        },
+      {
+        "src": "/images/icons/favicon-64x64.ico",
+        "sizes": "64x64",
+        "purpose": "any"
+      }
+    ],
+    "start_url": "./index.php",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+  }
+  
